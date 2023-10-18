@@ -1,6 +1,7 @@
 package PooGym;
 public class Corpo {
     int idade;
+    char sexo;
     double altura;
     double peso;
     double cintura;
@@ -13,6 +14,15 @@ public class Corpo {
     public Corpo(double height, double weight){
         this.altura = height;
         this.peso = weight;
+    }
+
+    public char setSexo(char sexo){
+        if(sexo == 'm' || sexo =='f') this.sexo = sexo;
+        else System.out.println("Sexo invalido! Inserir 'm' ou 'f'.");
+    }
+
+    public void getSexo(){
+        return this.sexo;
     }
 
     public double getAltura() {
@@ -75,12 +85,14 @@ public class Corpo {
     //Para os homens = 66 + (13,8 x peso em kg) + (5 x altura em cm) – (6,8 x idade em anos)
     //Para as mulheres = 655 + (9,6 x peso em kg) + (1,8 x altura em cm) – (4,7 x idade em anos)
     
-    public double tmb(){
+    public double tmb(){ // taxa metabolica basal
         double tmb;
-        //se homem{
-        tmb = 66 + (13.8 * this.peso) + (5 * this.altura * 100) - (6.8 * this.idade);
-        //se mulher{
-        tmb = 655 + (9.6 * this.peso) + (1.8 * this.altura * 100) - (4.7 * this.idade);
+        if(this.sexo == 'm'){
+            tmb = 66 + (13.8 * this.peso) + (5 * this.altura * 100) - (6.8 * this.idade);
+        }
+        else{
+            tmb = 655 + (9.6 * this.peso) + (1.8 * this.altura * 100) - (4.7 * this.idade);
+        }
         return tmb;
     }
 }
