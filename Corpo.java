@@ -1,12 +1,12 @@
 package PooGym;
 public class Corpo {
-    int idade;
-    char sexo;
-    double altura;
-    double peso;
-    double cintura;
-    double braco;
-    double panturrilha;
+    private int idade;
+    private char sexo;
+    private double altura;
+    private double peso;
+    private double cintura;
+    private double braco;
+    private double panturrilha;
     
     public Corpo(){
     }
