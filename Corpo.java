@@ -16,12 +16,21 @@ public class Corpo {
         this.peso = weight;
     }
 
-    public char setSexo(char sexo){
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        if(idade > 0) this.idade = idade;
+        else System.out.println("Idade invalida!");
+    }
+    
+    public void setSexo(char sexo){
         if(sexo == 'm' || sexo =='f') this.sexo = sexo;
         else System.out.println("Sexo invalido! Inserir 'm' ou 'f'.");
     }
 
-    public void getSexo(){
+    public char getSexo(){
         return this.sexo;
     }
 
@@ -67,7 +76,7 @@ public class Corpo {
         if(panturrilha > 0) this.panturrilha = panturrilha;
     }
     
-    public double imc(){
+    public double imc(){ //indice de massa corporea
         double result = this.peso / Math.pow(this.altura, 2);
         return result;
     }
@@ -85,14 +94,32 @@ public class Corpo {
     //Para os homens = 66 + (13,8 x peso em kg) + (5 x altura em cm) – (6,8 x idade em anos)
     //Para as mulheres = 655 + (9,6 x peso em kg) + (1,8 x altura em cm) – (4,7 x idade em anos)
     
-    public double tmb(){ // taxa metabolica basal
+    public double tmb(){ // taxa metabolica basal aproximada
         double tmb;
         if(this.sexo == 'm'){
-            tmb = 66 + (13.8 * this.peso) + (5 * this.altura * 100) - (6.8 * this.idade);
+            tmb = 66 + (13.8 * this.peso) + (5.0 * this.altura * 100.0) - (6.8 * this.idade);
         }
         else{
             tmb = 655 + (9.6 * this.peso) + (1.8 * this.altura * 100) - (4.7 * this.idade);
         }
         return tmb;
+    }
+    
+    public void getInfoGeral(){
+        System.out.println("Idade......: " + this.idade + " anos");
+        System.out.print("Sexo.......: ");
+        if(this.sexo == 'm') System.out.println("masculino");
+        else System.out.println("feminino");
+        System.out.println("Altura.....: " + this.altura + "m");
+        System.out.println("Peso.......: " + this.peso + "kg");
+        System.out.println("Cintura....: " + this.cintura + "cm");
+        System.out.println("Braco......: " + this.braco + "cm");
+        System.out.println("Panturrilha: " + this.panturrilha + "cm");
+    }
+    
+    public double agua(){ //resultado em mL
+        double result;
+        result = 35 * this.peso;
+        return result;
     }
 }
