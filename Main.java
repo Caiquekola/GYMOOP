@@ -1,20 +1,21 @@
+package poogym;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Main {
+
+    static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    static Scanner scan = new Scanner(System.in);
+    static String resposta="null";
     public static void main(String[] args) {
-        Corpo corpo = new Corpo(1.76, 73);
-        double imc = corpo.imc();
-        System.out.printf("IMC: %.2f \n", imc);
-        corpo.analisaImc(imc);
-        corpo.setSexo('m');
-        corpo.setIdade(24);
-        corpo.setBraco(32);
-        corpo.setCintura(57);
-        corpo.setPanturrilha(37);
-        double tmb = corpo.tmb();
-        System.out.println("Taxa metabolica basal: " + tmb + " cal");
-        System.out.println("Quantidade de agua diaria: " + corpo.agua() + " mL");
-        Scanner in = new Scanner(System.in);
-        System.out.println("");
-        corpo.getInfoGeral();
+        
+        do{
+            System.out.println("FITNESS CLUB");
+            
+            
+            resposta = scan.nextLine().trim().toUpperCase();
+        }while(resposta.startsWith("S"));
+        
     }
+
 }
