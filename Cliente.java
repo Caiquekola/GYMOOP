@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package poogym;
-
-/**
- *
- * @author ADMIN
- */
+import java.util.ArrayList;
 public class Cliente {
     
     public Cliente(String Nome, String Cpf, String Telefone, String endereco){
@@ -23,8 +15,33 @@ public class Cliente {
     private String cpf;
     private String telefone;
     private String endereco;
-    private Corpo corpo;
-    private Ficha ficha;
+    private CorpoCliente corpoCliente;
+    private ArrayList<Ficha> ficha=new ArrayList<Ficha>();
+    private int qntFichas=0;
+
+    public CorpoCliente getCorpoCliente() {
+        return corpoCliente;
+    }
+
+    public void setCorpoCliente(CorpoCliente corpoCliente) {
+        this.corpoCliente = corpoCliente;
+    }
+
+    public int getQntFichas() {
+        return qntFichas;
+    }
+
+    public void setQntFichas(int qntFichas) {
+        this.qntFichas = qntFichas;
+    }
+    
+    public ArrayList<Ficha> getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(ArrayList<Ficha> ficha) {
+        this.ficha = ficha;
+    }
 
     public String getNome() {
         return nome;
@@ -57,23 +74,16 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
-    public Corpo getCorpo() {
-        return corpo;
-    }
-
-    public void setCorpo(Corpo corpo) {
-        this.corpo = corpo;
-    }
-
-    public Ficha getFicha() {
-        return ficha;
-    }
-
-    public void setFicha(Ficha ficha) {
-        this.ficha = ficha;
+    
+    public void adcFicha(Ficha fichas){
+        this.ficha.add(fichas);
     }
     
-    
+    public String toString(){
+        String result = String.format("Nome: %s\nCpf: %s\n"
+                + "Endereço: %s\nTelefone: %s",this.nome,this.cpf,
+                this.endereco,this.telefone);
+        return result;
+    }
     
 }

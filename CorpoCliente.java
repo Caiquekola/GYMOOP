@@ -1,5 +1,5 @@
-package PooGym;
-public class Corpo {
+package poogym;
+public class CorpoCliente {
     private int idade;
     private char sexo;
     private double altura;
@@ -8,10 +8,10 @@ public class Corpo {
     private double braco;
     private double panturrilha;
     
-    public Corpo(){
+    public CorpoCliente(){
     }
     
-    public Corpo(double height, double weight){
+    public CorpoCliente(double height, double weight){
         this.altura = height;
         this.peso = weight;
     }
@@ -25,8 +25,9 @@ public class Corpo {
         else System.out.println("Idade invalida!");
     }
     
-    public void setSexo(char sexo){
-        if(sexo == 'm' || sexo =='f') this.sexo = sexo;
+    public void setSexo(String sexoT){
+        char sexo = sexoT.toLowerCase().charAt(0);
+        if(sexo == 'm' ||sexo =='f') this.sexo = sexo;
         else System.out.println("Sexo invalido! Inserir 'm' ou 'f'.");
     }
 
@@ -39,7 +40,7 @@ public class Corpo {
     }
 
     public void setAltura(double altura) {
-        if(altura > 0 && altura < 3) this.altura = altura;
+        if(altura > 0 && altura < 2.5) this.altura = altura;
         else System.out.println("Altura invalida!");
     }
 
@@ -75,7 +76,10 @@ public class Corpo {
     public void setPanturrilha(double panturrilha) {
         if(panturrilha > 0) this.panturrilha = panturrilha;
     }
-    
+    public String mascOuFem(){
+        if(this.sexo == 'm') return("masculino");
+        else return("feminino");
+    }
     public double imc(){ //indice de massa corporea
         double result = this.peso / Math.pow(this.altura, 2);
         return result;
@@ -105,11 +109,9 @@ public class Corpo {
         return tmb;
     }
     
-    public void getInfoGeral(){
+    public void infoGeral(){
         System.out.println("Idade......: " + this.idade + " anos");
-        System.out.print("Sexo.......: ");
-        if(this.sexo == 'm') System.out.println("masculino");
-        else System.out.println("feminino");
+        System.out.println("Sexo.......: "+mascOuFem());
         System.out.println("Altura.....: " + this.altura + "m");
         System.out.println("Peso.......: " + this.peso + "kg");
         System.out.println("Cintura....: " + this.cintura + "cm");

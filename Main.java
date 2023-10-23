@@ -10,12 +10,15 @@ public class Main {
     public static void main(String[] args) {
         
         do{
-            System.out.println("FITNESS CLUB");
+            System.out.println("----------------------");
+            System.out.println("    FITNESS CLUB");
+            
             
             
             resposta = scan.nextLine().trim().toUpperCase();
-        }while(resposta.startsWith("S"));
+        }while(!resposta.startsWith("S"));
         
     }
 
+    
 }
