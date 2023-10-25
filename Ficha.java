@@ -1,8 +1,16 @@
 package poogym;
 
 import java.util.List;
-public class Ficha extends Exercicio {
+public class Ficha {
     private List<Exercicio> exercicio;
+
+    public List<Exercicio> getExercicio() {
+        return exercicio;
+    }
+
+    public void setExercicio(List<Exercicio> exercicio) {
+        this.exercicio = exercicio;
+    }
     
     public void novo(String nome, int repet, int series, double peso, String dia){
         Exercicio exe = new Exercicio(nome, repet, series, peso, dia);

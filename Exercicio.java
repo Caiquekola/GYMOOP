@@ -62,5 +62,6 @@ public class Exercicio {
         System.out.println("Dias da semana: " + diaSemana);
         System.out.println("Treino: " + series + "X" + repet);
         System.out.println("Peso: " + peso + "Kg");
+
     }
 }

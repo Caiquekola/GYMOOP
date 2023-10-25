@@ -1,5 +1,4 @@
 package poogym;
-import java.util.ArrayList;
 public class Cliente {
     
     public Cliente(String Nome, String Cpf, String Telefone, String endereco){
@@ -16,7 +15,7 @@ public class Cliente {
     private String telefone;
     private String endereco;
     private CorpoCliente corpoCliente;
-    private ArrayList<Ficha> ficha=new ArrayList<Ficha>();
+    private Ficha ficha;
     private int qntFichas=0;
 
     public CorpoCliente getCorpoCliente() {
@@ -27,19 +26,12 @@ public class Cliente {
         this.corpoCliente = corpoCliente;
     }
 
-    public int getQntFichas() {
-        return qntFichas;
-    }
-
-    public void setQntFichas(int qntFichas) {
-        this.qntFichas = qntFichas;
-    }
     
-    public ArrayList<Ficha> getFicha() {
+    public Ficha getFicha() {
         return ficha;
     }
 
-    public void setFicha(ArrayList<Ficha> ficha) {
+    public void setFicha(Ficha ficha) {
         this.ficha = ficha;
     }
 
@@ -73,10 +65,6 @@ public class Cliente {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-    
-    public void adcFicha(Ficha fichas){
-        this.ficha.add(fichas);
     }
     
     public String toString(){
