@@ -10,7 +10,15 @@ public class CorpoCliente {
     
     public CorpoCliente(){
     }
-    
+    public CorpoCliente(int idade,char sexo,double altura,double peso, double cintura,double braco,double panturrilha){
+        this.idade = idade;
+        this.sexo = sexo;
+        this.altura = altura;
+        this.peso = peso;
+        this.cintura = cintura;
+        this.braco = braco;
+        this.panturrilha = panturrilha;
+    }
     public CorpoCliente(double height, double weight){
         this.altura = height;
         this.peso = weight;
