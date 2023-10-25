@@ -84,16 +84,18 @@ public class CorpoCliente {
     public void setPanturrilha(double panturrilha) {
         if(panturrilha > 0) this.panturrilha = panturrilha;
     }
-    public String mascOuFem(){
+    private String mascOuFem(){
         if(this.sexo == 'm') return("masculino");
         else return("feminino");
     }
-    public double imc(){ //indice de massa corporea
+    private double imc(){ //indice de massa corporea
         double result = this.peso / Math.pow(this.altura, 2);
         return result;
     }
     
-    public void analisaImc(double imc){
+    public void analisaImc(){
+        double imc = imc();
+        System.out.println("IMC: " + imc);
         if(imc < 17) System.out.println("Muito abaixo do peso");
         else if(imc < 18.5) System.out.println("Abaixo do peso");
         else if(imc < 25) System.out.println("Peso normal");

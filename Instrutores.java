@@ -52,7 +52,10 @@ public class Instrutores {
         cliente.getFicha().apagar(indexExc);
     }
     public void exibirFicha(Cliente cliente){
-        cliente.getFicha().listar();
+        if(cliente.getFicha().getExercicio().isEmpty()){
+            System.out.println("Nao ha exercicios.");
+        }
+        else cliente.getFicha().listar();
     }
     public void infoPessoal(Cliente cliente){
         System.out.println(cliente.toString());

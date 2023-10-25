@@ -70,7 +70,7 @@ public class Cliente {
     
     public String toString(){
         String result = String.format("Nome: %s\nCpf: %s\n"
-                + "Endereço: %s\nTelefone: %s",this.nome,this.cpf,
+                + "Endereco: %s\nTelefone: %s",this.nome,this.cpf,
                 this.endereco,this.telefone);
         return result;
     }
