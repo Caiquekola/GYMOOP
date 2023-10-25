@@ -1,14 +1,14 @@
 package poogym;
 
-import java.util.List;
+import java.util.ArrayList;
 public class Ficha {
-    private List<Exercicio> exercicio;
+    private ArrayList<Exercicio> exercicio = new ArrayList<Exercicio>();
 
-    public List<Exercicio> getExercicio() {
+    public ArrayList<Exercicio> getExercicio() {
         return exercicio;
     }
 
-    public void setExercicio(List<Exercicio> exercicio) {
+    public void setExercicio(ArrayList<Exercicio> exercicio) {
         this.exercicio = exercicio;
     }
     
