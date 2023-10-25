@@ -14,11 +14,11 @@ public class Instrutores {
         if(cliente.getQntFichas()==0){
             System.out.println("Nenhuma ficha foi criada!\nCrie uma ficha antes!");
         }else{
-            int nFicha = cliente.getQntFichas();
-            cliente.getFicha().get(nFicha-1).adcExercicio(exc);
-            cliente.getFicha().get(nFicha-1).adcRepeticao(rep);
-            cliente.getFicha().get(nFicha-1).adcSerieExc(serie);
-            cliente.getFicha().get(nFicha-1).adcPeso(peso);
+            int nFicha = cliente.getQntFichas()-1;
+            cliente.getFicha().get(nFicha).adcExercicio(exc);
+            cliente.getFicha().get(nFicha).adcRepeticao(rep);
+            cliente.getFicha().get(nFicha).adcSerieExc(serie);
+            cliente.getFicha().get(nFicha).adcPeso(peso);
         }
         
     }
