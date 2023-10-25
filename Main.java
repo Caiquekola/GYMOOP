@@ -11,7 +11,11 @@ public class Main {
         
         do{
             System.out.println("----------------------");
-            System.out.println("    FITNESS CLUB");
+            System.out.println("    /nFITNESS CLUB/n");
+System.out.println("----------------------/n");
+System.out.println("");
+
+
             
             
             
