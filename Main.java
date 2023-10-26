@@ -193,15 +193,24 @@ public class Main {
                                 claudiano.adcExc(claudiano.getClientes().get(id), nome, rep, serie, peso, dia);
                                 break;
                                 
-//                            case 3: //modificar exercicio
-//                                id = menuId();
-//                                menuModExc();
-//                                int menu = scan.nextInt();
-//                                scan.nextLine();
-//                                switch(menu){
-//                                    case 1:
-//                                }
-//                                break;
+                            case 3: //modificar exercicio
+                                id = menuId();
+                                menuModExc();
+                                int menu = scan.nextInt();
+                                scan.nextLine();
+                                switch(menu){
+                                    case 1:
+                                        claudiano.getClientes().get(id).getFicha().listar();
+                                        System.out.print("\nInforme o exercicio a ser modificado: ");
+                                        int index = scan.nextInt();
+                                        scan.nextLine();
+                                        System.out.print("\nNovo nome do exercicio: ");
+                                        nome = scan.nextLine();
+                                        claudiano.getClientes().get(id).getFicha().getExercicio().get(index).setNomeExe(nome);
+                                        break;
+                                        
+                                }
+                                break;
                                 
                             case 4: //apagar exercicio
                                 id = menuId();
@@ -228,25 +237,28 @@ public class Main {
                                     menuInfoCorpo();
                                     info = scan.nextInt();
                                     scan.nextLine();
+                                    id = menuId();
                                     switch(info){
                                         case 1: //IMC
-                                            
+                                            claudiano.getClientes().get(id).getCorpoCliente().analisaImc();
                                             break;
                                             
                                         case 2: //TMB
-                                            
+                                            double tmb = claudiano.getClientes().get(id).getCorpoCliente().tmb();
+                                            System.out.println("Taxa metabólica basal: " + tmb + " cal");
                                             break;
                                             
                                         case 3: //InfoGeral
-                                            
+                                            claudiano.getClientes().get(id).getCorpoCliente().infoGeral();
                                             break;
                                             
                                         case 4: //Agua
-                                            
+                                            double agua = claudiano.getClientes().get(id).getCorpoCliente().agua();
+                                            System.out.println("Quantidade de agua diaria: " + agua + " mL");
                                             break;
                                     }
                                     
-                                }while(info != 4);
+                                }while(info != 5);
                                 break;
                                 
                         }
