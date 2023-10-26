@@ -1,16 +1,5 @@
 package poogym;
 
-<<<<<<< HEAD
-import java.util.List;
-public class Ficha {
-    private List<Exercicio> exercicio;
-
-    public List<Exercicio> getExercicio() {
-        return exercicio;
-    }
-
-    public void setExercicio(List<Exercicio> exercicio) {
-=======
 import java.util.ArrayList;
 public class Ficha {
     private ArrayList<Exercicio> exercicio = new ArrayList<Exercicio>();
@@ -20,7 +9,6 @@ public class Ficha {
     }
 
     public void setExercicio(ArrayList<Exercicio> exercicio) {
->>>>>>> 6f9d593475ca4ba177ace3fc0850b66af44b8631
         this.exercicio = exercicio;
     }
     
