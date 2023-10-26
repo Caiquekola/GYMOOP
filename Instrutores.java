@@ -1,7 +1,6 @@
 
 package poogym;
 import java.util.ArrayList;
-import java.util.List;
 public class Instrutores {
     public Instrutores(){
         this.id = "3126";
@@ -26,7 +25,7 @@ public class Instrutores {
         CorpoCliente corpo = new CorpoCliente(idade, sexo, altura, peso,  cintura, braco, panturrilha);
         cliente.setCorpoCliente(corpo);
     }
-    public void adcExc(Cliente cliente, String exc, int rep, int serie,float peso,String dia){
+    public void adcExc(Cliente cliente, String exc, int rep, int serie,double peso,String dia){
             cliente.getFicha().novo(exc, rep, serie, peso, dia);
     }
     public void modfExcNome(Cliente cliente, int indexExc,String nome){
