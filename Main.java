@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package poogym;
 
 
@@ -83,3 +84,33 @@ public class Main {
 
     
 }
+=======
+package poogym;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main {
+
+    static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    static Scanner scan = new Scanner(System.in);
+    static String resposta="null";
+    public static void main(String[] args) {
+        
+        do{
+            System.out.println("----------------------");
+            System.out.println("    /nFITNESS CLUB/n");
+System.out.println("----------------------/n");
+System.out.println("");
+
+
+            
+            
+            
+            resposta = scan.nextLine().trim().toUpperCase();
+        }while(!resposta.startsWith("S"));
+        
+    }
+
+    
+}
+>>>>>>> f7f323cbb9728b61fd8ce6ab009a111d4c43521f
