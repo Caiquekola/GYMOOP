@@ -51,10 +51,14 @@ public class Instrutores {
         cliente.getFicha().apagar(indexExc);
     }
     public void exibirFicha(Cliente cliente){
-        if(cliente.getFicha().getExercicio().isEmpty()){
-            System.out.println("Nao ha exercicios.");
+        if(this.qntClientes>0){
+            if(cliente.getFicha().getExercicio().isEmpty()){
+                System.out.println("Nao ha exercicios.");
+            }
+            else cliente.getFicha().listar();}
+        else{
+            System.out.println("ERRO! Nenhum cliente cadastrado!");
         }
-        else cliente.getFicha().listar();
     }
     public void infoPessoal(Cliente cliente){
         System.out.println(cliente.toString());
@@ -67,8 +71,10 @@ public class Instrutores {
     public void setClientes(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
     }
-
-    public int getQntClientes() {
+    private void setQntClientes(int qnt){
+        this.qntClientes = qnt;
+    }
+    protected int getQntClientes() {
         return qntClientes;
     }
     
