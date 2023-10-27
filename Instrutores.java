@@ -7,7 +7,7 @@ public class Instrutores {
     }
     private String id;
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-    int qntClientes=-1;
+    protected int qntClientes=-1;
     public String getId() {
         return id;
     }
@@ -51,7 +51,7 @@ public class Instrutores {
         cliente.getFicha().apagar(indexExc);
     }
     public void exibirFicha(Cliente cliente){
-        if(this.qntClientes>0){
+        if(this.qntClientes>=0){
             if(cliente.getFicha().getExercicio().isEmpty()){
                 System.out.println("Nao ha exercicios.");
             }
