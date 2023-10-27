@@ -10,18 +10,14 @@ public class CorpoCliente {
     
     public CorpoCliente(){
     }
-    public CorpoCliente(int idade,char sexo,double altura,double peso, double cintura,double braco,double panturrilha){
+    public CorpoCliente(int idade,char sexo,int altura,double peso, double cintura,double braco,double panturrilha){
         this.idade = idade;
         this.sexo = sexo;
-        this.altura = altura;
+        this.setAltura(altura);
         this.peso = peso;
         this.cintura = cintura;
         this.braco = braco;
         this.panturrilha = panturrilha;
-    }
-    public CorpoCliente(double height, double weight){
-        this.altura = height;
-        this.peso = weight;
     }
 
     public int getIdade() {
@@ -47,8 +43,8 @@ public class CorpoCliente {
         return altura;
     }
 
-    public void setAltura(double altura) {
-        if(altura > 0 && altura < 2.5) this.altura = altura;
+    public void setAltura(int altura) {
+        if(altura > 0 && altura < 250) this.altura = (altura / 100.0);
         else System.out.println("Altura invalida!");
     }
 
@@ -111,7 +107,7 @@ public class CorpoCliente {
     public double tmb(){ // taxa metabolica basal aproximada
         double tmb;
         if(this.sexo == 'm'){
-            tmb = 66 + (13.8 * this.peso) + (5.0 * this.altura * 100.0) - (6.8 * this.idade);
+            tmb = 66 + (13.8 * this.peso) + (5.0 * this.altura * 100) - (6.8 * this.idade);
         }
         else{
             tmb = 655 + (9.6 * this.peso) + (1.8 * this.altura * 100) - (4.7 * this.idade);
@@ -121,7 +117,7 @@ public class CorpoCliente {
     
     public void infoGeral(){
         System.out.println("\nIdade......: " + this.idade + " anos");
-        System.out.println("Sexo.......: "+mascOuFem());
+        System.out.println("Sexo.......: " + mascOuFem());
         System.out.println("Altura.....: " + this.altura + "m");
         System.out.println("Peso.......: " + this.peso + "kg");
         System.out.println("Cintura....: " + this.cintura + "cm");

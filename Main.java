@@ -56,7 +56,8 @@ public class Main {
         System.out.println("  5 - Exibir ficha");
         System.out.println("  6 - Exibir informacao pessoal");
         System.out.println("  7 - Exibir informacao corporal");
-        System.out.println("  8 - Voltar ao menu anterior");
+        System.out.println("  8 - Listar todos os clientes");
+        System.out.println("  9 - Voltar ao menu anterior");
         System.out.print("  >> ");
     }
 
@@ -145,7 +146,7 @@ public class Main {
                             menuInstrutor0();
                             resp = scan.nextInt();
                             scan.nextLine();
-                            if (resp == 1|resp==8 | admin.qntClientes >= 0) {
+                            if (resp == 1|resp==9 | admin.qntClientes >= 0) {
                                 switch (resp) {
                                     case 1: //cadastrar cliente
                                         int cad;
@@ -178,9 +179,8 @@ public class Main {
                                                     scan.nextLine();
                                                     System.out.print("Sexo.......(f/m): ");
                                                     char sexo = scan.nextLine().charAt(0);
-                                                    System.out.print("Altura(m).......: ");
-                                                    double altura = scan.nextDouble();
-                                                    scan.nextLine();
+                                                    System.out.print("Altura(cm).......: ");
+                                                    int altura = scan.nextInt();
                                                     System.out.print("Peso(Kg)........: ");
                                                     double peso = scan.nextDouble();
                                                     scan.nextLine();
@@ -219,24 +219,6 @@ public class Main {
                                         String dia = scan.next();
                                         scan.nextLine();
                                         admin.getClientes().get(id).getFicha().adicionar(opc, peso, dia);
-                                        
-//                                        System.out.print("Nome do exercicio: ");
-//                                        String nome = scan.nextLine();
-//                                        System.out.print("Musculos: ");
-//                                        String musculo = scan.nextLine();
-//                                        System.out.print("Repeticoes: ");
-//                                        int rep = scan.nextInt();
-//                                        scan.nextLine();
-//                                        System.out.print("Series: ");
-//                                        int serie = scan.nextInt();
-//                                        scan.nextLine();
-//                                        System.out.print("Peso: ");
-//                                        double peso = scan.nextDouble();
-//                                        scan.nextLine();
-//                                        System.out.print("Dia da Semana: ");
-//                                        String dia = scan.next();
-//                                        scan.nextLine();
-//                                        admin.adcExc(admin.getClientes().get(id), nome, musculo, rep, serie, peso, dia);
                                         break;
 
                                     case 3: //modificar exercicio
@@ -357,12 +339,16 @@ public class Main {
                                             System.out.println("Va em: (1)Cadastrar cliente >> (2)Cadastrar info corporal");
                                         }
                                     break;
+                                    
+                                    case 8: //listar clientes
+                                        admin.listarClientes();
+                                        break;
                                 }
                             }else{
                                 erro();
                                 System.out.println("Selecione a opcao 1");
                             }
-                        } while (resp != 8);
+                        } while (resp != 9);
                     } else {
                         System.out.println("\nSenha incorreta!");
                     }

@@ -10,7 +10,7 @@ public class Instrutores {
     
     public Instrutores(){
         cadastro("Caio", "012.345.678-90", "31971902735", "R. Avenida, Matriz, Congonhas-MG");
-        CorpoCliente body = new CorpoCliente(18, 'm', 1.75, 65, 79, 35, 40);
+        CorpoCliente body = new CorpoCliente(18, 'm', 175, 65, 79, 35, 40);
         this.clientes.get(0).setCorpoCliente(body);
         this.clientes.get(0).getFicha().adicionar(1, 10, "Seg");
         this.clientes.get(0).getFicha().adicionar(3, 13, "Seg");
@@ -20,7 +20,7 @@ public class Instrutores {
         this.clientes.get(0).getFicha().adicionar(21, 30, "Sex");
         this.clientes.get(0).getFicha().adicionar(24, 35, "Sab");
         cadastro("Caique", "987.654.321-01", "31963895839", "Av. Principal, Inconfidentes, Ouro Branco-MG");
-        body = new CorpoCliente(18, 'm', 1.7, 57, 70, 35, 40);
+        body = new CorpoCliente(18, 'm', 170, 57, 70, 35, 40);
         this.clientes.get(1).setCorpoCliente(body);
         this.clientes.get(1).getFicha().adicionar(2, 15, "Seg");
         this.clientes.get(1).getFicha().adicionar(4, 20, "Seg");
@@ -41,7 +41,7 @@ public class Instrutores {
         qntClientes++;
     }
     
-    public void setCorpo(Cliente cliente, int idade,char sexo,double altura,double peso, double cintura,double braco,double panturrilha){
+    public void setCorpo(Cliente cliente, int idade,char sexo,int altura,double peso, double cintura,double braco,double panturrilha){
         CorpoCliente corpo = new CorpoCliente(idade, sexo, altura, peso,  cintura, braco, panturrilha);
         cliente.setCorpoCliente(corpo);
     }
@@ -103,6 +103,13 @@ public class Instrutores {
     
     protected int getQntClientes() {
         return qntClientes;
+    }
+    
+    public void listarClientes(){
+        for (int index = 0; index <= qntClientes; index++) {
+            System.out.println("\n------------- " + index + " -------------");
+            infoPessoal(clientes.get(index));
+        }
     }
     
 }   
