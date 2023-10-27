@@ -108,21 +108,21 @@ public class Main {
             scan.nextLine();
             switch (resposta) {
                 case 1: //Cliente
-                    if (admin.qntClientes > 0) {
+                    if (admin.qntClientes >= 0) {
                         do {
                             menuCliente1();
                             resp = scan.nextInt();
                             scan.nextLine();
                             switch (resp) {
                                 case 1: //Exibir ficha de exercicios
-                                    if (admin.qntClientes > 0) {
+                                    if (admin.qntClientes >= 0) {
                                         admin.exibirFicha(admin.getClientes().get(menuId()));
                                     } else {
                                         erro();
                                     }
                                     break;
                                 case 2: //Exibir info corporal
-                                    if (admin.qntClientes > 0) {
+                                    if (admin.qntClientes >= 0) {
                                         admin.getClientes().get(menuId()).getCorpoCliente().infoGeral();
                                     } else {
                                         erro();
@@ -133,7 +133,7 @@ public class Main {
                             }
 
                         } while (resp != 3);
-                    } else {
+                    }else {
                         erro();
                         System.out.println("Acesse o Instrutor e cadastre um Cliente!");
                     }
@@ -155,7 +155,7 @@ public class Main {
                                             menuCadCli();
                                             cad = scan.nextInt();
                                             scan.nextLine();
-                                            if(cad==1|admin.getQntClientes()>0){
+                                            if(cad==1|admin.getQntClientes()>=0){
                                             switch (cad) {
                                                 case 1: //Cadastrar info pessoal
                                                     System.out.print("Nome: ");
@@ -177,7 +177,7 @@ public class Main {
                                                     System.out.print("\nIdade...........: ");
                                                     int idade = scan.nextInt();
                                                     scan.nextLine();
-                                                    System.out.print("Sexo............: ");
+                                                    System.out.print("Sexo.......(f/m): ");
                                                     char sexo = scan.nextLine().charAt(0);
                                                     System.out.print("Altura(m).......: ");
                                                     double altura = scan.nextDouble();
