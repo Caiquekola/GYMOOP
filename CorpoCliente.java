@@ -95,7 +95,7 @@ public class CorpoCliente {
     
     public void analisaImc(){
         double imc = imc();
-        System.out.println("IMC: " + imc);
+        System.out.println("\nIMC: " + imc);
         if(imc < 17) System.out.println("Muito abaixo do peso");
         else if(imc < 18.5) System.out.println("Abaixo do peso");
         else if(imc < 25) System.out.println("Peso normal");
@@ -120,7 +120,7 @@ public class CorpoCliente {
     }
     
     public void infoGeral(){
-        System.out.println("Idade......: " + this.idade + " anos");
+        System.out.println("\nIdade......: " + this.idade + " anos");
         System.out.println("Sexo.......: "+mascOuFem());
         System.out.println("Altura.....: " + this.altura + "m");
         System.out.println("Peso.......: " + this.peso + "kg");

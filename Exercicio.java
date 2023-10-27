@@ -3,19 +3,32 @@ public class Exercicio {
     private int repet;
     private int series;
     private String nomeExe;
+    private String musculos;
     private String diaSemana;
     private double peso;
     
-    public Exercicio(){
-    }
-    
-    public Exercicio(String nome, int repet, int series, double peso, String dia){
+    public Exercicio(String nome, String musc, int repet, int series, double peso, String dia){
         this.nomeExe = nome;
         this.repet = repet;
         this.series = series;
+        this.musculos = musc;
         this.peso = peso;
         this.diaSemana = dia;
     }
+    
+    public Exercicio(String nome, String musc, int repet, int series){
+        this.nomeExe = nome;
+        this.repet = repet;
+        this.series = series;
+        this.musculos = musc;
+    }
+    
+    public Exercicio(double peso, String dia){
+        this.peso = peso;
+        this.diaSemana = dia;
+    }
+    
+    
 
     public double getPeso() {
         return peso;
@@ -41,6 +54,14 @@ public class Exercicio {
         this.series = series;
     }
 
+    public String getMusculos() {
+        return musculos;
+    }
+
+    public void setMusculos(String musculos) {
+        this.musculos = musculos;
+    }
+    
     public String getNomeExe() {
         return nomeExe;
     }
@@ -58,10 +79,11 @@ public class Exercicio {
     }
     
     public void info(){
-        System.out.println("Exercicio: " + nomeExe);
+        System.out.println(nomeExe.toUpperCase());
         System.out.println("Dias da semana: " + diaSemana);
-        System.out.println("Treino: " + series + "X" + repet);
-        System.out.println("Peso: " + peso + "Kg");
+        System.out.println("Treino........: " + series + "X" + repet);
+        System.out.println("Peso..........: " + peso + "Kg");
+        System.out.println("Grupo muscular: " + musculos);
 
     }
 }

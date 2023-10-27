@@ -109,33 +109,31 @@ public class Main {
             switch (resposta) {
                 case 1: //Cliente
                     if (admin.qntClientes >= 0) {
+                        int id = menuId();
                         do {
                             menuCliente1();
                             resp = scan.nextInt();
                             scan.nextLine();
-                            switch (resp) {
-                                case 1: //Exibir ficha de exercicios
-                                    if (admin.qntClientes >= 0) {
-                                        admin.exibirFicha(admin.getClientes().get(menuId()));
-                                    } else {
-                                        erro();
-                                    }
-                                    break;
-                                case 2: //Exibir info corporal
-                                    if (admin.qntClientes >= 0) {
-                                        admin.getClientes().get(menuId()).getCorpoCliente().infoGeral();
-                                    } else {
-                                        erro();
-                                    }
-                                    break;
-                                default:
-
-                            }
-
+                                switch (resp) {
+                                    case 1: //Exibir ficha de exercicios
+                                        if (admin.qntClientes >= 0) {
+                                            admin.exibirFicha(admin.getClientes().get(id));
+                                        } else {
+                                            erro();
+                                        }
+                                        break;
+                                    case 2: //Exibir info corporal
+                                        if (admin.qntClientes >= 0 && admin.getClientes().get(id).getCorpoCliente() != null) {
+                                            admin.getClientes().get(id).getCorpoCliente().infoGeral();
+                                        } else {
+                                            System.out.println("ERRO! Informacoes corporais nao cadastradas");
+                                        }
+                                        break;
+                                }
                         } while (resp != 3);
                     }else {
                         erro();
-                        System.out.println("Acesse o Instrutor e cadastre um Cliente!");
+                        System.out.println("Acesse Instrutor e cadastre um Cliente!");
                     }
                     resposta = 0;
                     break;
@@ -158,9 +156,9 @@ public class Main {
                                             if(cad==1|admin.getQntClientes()>=0){
                                             switch (cad) {
                                                 case 1: //Cadastrar info pessoal
-                                                    System.out.print("Nome: ");
+                                                    System.out.print("Nome....: ");
                                                     String nome = scan.nextLine();
-                                                    System.out.print("CPF: ");
+                                                    System.out.print("CPF.....: ");
                                                     String cpf = scan.next();
                                                     scan.nextLine();
                                                     System.out.print("Telefone: ");
@@ -168,7 +166,8 @@ public class Main {
                                                     scan.nextLine();
                                                     System.out.print("Endereco: ");
                                                     String endereco = scan.nextLine();
-
+                                                    
+                                                    System.out.println("Id de " + nome + ": " + (admin.getQntClientes()+1));
                                                     admin.cadastro(nome, cpf, telefone, endereco);
                                                     break;
 
@@ -209,21 +208,35 @@ public class Main {
 
                                     case 2: //adicionar exercicio
                                         int id = menuId();
-                                        System.out.print("Nome do exercicio: ");
-                                        String nome = scan.nextLine();
-                                        System.out.print("Repeticoes: ");
-                                        int rep = scan.nextInt();
+                                        admin.getClientes().get(id).getFicha().listarOpcoes();
+                                        System.out.println("\nExercicio a ser adicionado: ");
+                                        int opc = scan.nextInt();
                                         scan.nextLine();
-                                        System.out.print("Series: ");
-                                        int serie = scan.nextInt();
-                                        scan.nextLine();
-                                        System.out.print("Peso: ");
+                                        System.out.print("Peso(Kg).....: ");
                                         double peso = scan.nextDouble();
                                         scan.nextLine();
                                         System.out.print("Dia da Semana: ");
                                         String dia = scan.next();
                                         scan.nextLine();
-                                        admin.adcExc(admin.getClientes().get(id), nome, rep, serie, peso, dia);
+                                        admin.getClientes().get(id).getFicha().adicionar(opc, peso, dia);
+                                        
+//                                        System.out.print("Nome do exercicio: ");
+//                                        String nome = scan.nextLine();
+//                                        System.out.print("Musculos: ");
+//                                        String musculo = scan.nextLine();
+//                                        System.out.print("Repeticoes: ");
+//                                        int rep = scan.nextInt();
+//                                        scan.nextLine();
+//                                        System.out.print("Series: ");
+//                                        int serie = scan.nextInt();
+//                                        scan.nextLine();
+//                                        System.out.print("Peso: ");
+//                                        double peso = scan.nextDouble();
+//                                        scan.nextLine();
+//                                        System.out.print("Dia da Semana: ");
+//                                        String dia = scan.next();
+//                                        scan.nextLine();
+//                                        admin.adcExc(admin.getClientes().get(id), nome, musculo, rep, serie, peso, dia);
                                         break;
 
                                     case 3: //modificar exercicio
@@ -237,17 +250,17 @@ public class Main {
                                                 case 1: //modificar nome do exercicio
                                                     int index = menuExc();
                                                     System.out.print("\nNovo nome do exercicio: ");
-                                                    nome = scan.nextLine();
+                                                    String nome = scan.nextLine();
                                                     admin.getClientes().get(id).getFicha().getExercicio().get(index).setNomeExe(nome);
                                                     break;
 
                                                 case 2: //modificar serie X repeticao
                                                     index = menuExc();
                                                     System.out.print("\nNova serie: ");
-                                                    serie = scan.nextInt();
+                                                    int serie = scan.nextInt();
                                                     scan.nextLine();
                                                     System.out.print("\nNova repeticao: ");
-                                                    rep = scan.nextInt();
+                                                    int rep = scan.nextInt();
                                                     scan.nextLine();
                                                     admin.getClientes().get(id).getFicha().getExercicio().get(index).setSeries(serie);
                                                     admin.getClientes().get(id).getFicha().getExercicio().get(index).setRepet(rep);
@@ -271,6 +284,8 @@ public class Main {
                                                     index = menuExc();
                                                     System.out.print("Nome do exercicio: ");
                                                     nome = scan.nextLine();
+                                                    System.out.print("Musculos: ");
+                                                    String musculo = scan.nextLine();
                                                     System.out.print("Repeticoes: ");
                                                     rep = scan.nextInt();
                                                     scan.nextLine();
@@ -282,7 +297,7 @@ public class Main {
                                                     scan.nextLine();
                                                     System.out.print("Dia da Semana: ");
                                                     dia = scan.nextLine();
-                                                    Exercicio ex = new Exercicio(nome, rep, serie, peso, dia);
+                                                    Exercicio ex = new Exercicio(nome, musculo, rep, serie, peso, dia);
                                                     admin.getClientes().get(id).getFicha().getExercicio().set(index, ex);
                                                     break;
                                             }
@@ -308,35 +323,40 @@ public class Main {
                                         System.out.println(admin.getClientes().get(id).toString());
                                         break;
 
-                                    case 7:
-                                        int info;
-                                        do {
-                                            menuInfoCorpo();
-                                            info = scan.nextInt();
-                                            scan.nextLine();
-                                            id = menuId();
-                                            switch (info) {
-                                                case 1: //IMC
-                                                    admin.getClientes().get(id).getCorpoCliente().analisaImc();
-                                                    break;
+                                    case 7: //exibir info corporal
+                                        id = menuId();
+                                        if(admin.getClientes().get(id).getCorpoCliente() != null){
+                                            int info;
+                                            do {
+                                                menuInfoCorpo();
+                                                info = scan.nextInt();
+                                                scan.nextLine();
+                                                switch (info) {
+                                                    case 1: //IMC
+                                                        admin.getClientes().get(id).getCorpoCliente().analisaImc();
+                                                        break;
 
-                                                case 2: //TMB
-                                                    double tmb = admin.getClientes().get(id).getCorpoCliente().tmb();
-                                                    System.out.println("Taxa metabolica basal: " + tmb + " cal");
-                                                    break;
+                                                    case 2: //TMB
+                                                        double tmb = admin.getClientes().get(id).getCorpoCliente().tmb();
+                                                        System.out.println("\nTaxa metabolica basal: " + tmb + " cal");
+                                                        break;
 
-                                                case 3: //InfoGeral
-                                                    admin.getClientes().get(id).getCorpoCliente().infoGeral();
-                                                    break;
+                                                    case 3: //InfoGeral
+                                                        admin.getClientes().get(id).getCorpoCliente().infoGeral();
+                                                        break;
 
-                                                case 4: //Agua
-                                                    double agua = admin.getClientes().get(id).getCorpoCliente().agua();
-                                                    System.out.println("Quantidade de agua diaria: " + agua + " mL");
-                                                    break;
-                                            }
+                                                    case 4: //Agua
+                                                        double agua = admin.getClientes().get(id).getCorpoCliente().agua();
+                                                        System.out.println("\nQuantidade de agua diaria: " + agua + " mL");
+                                                        break;
+                                                }
 
-                                        } while (info != 5);
-                                        break;
+                                            } while (info != 5);
+                                        }else{
+                                            System.out.println("ERRO! Cadastre as informacoes corporais primeiro!");
+                                            System.out.println("Va em: (1)Cadastrar cliente >> (2)Cadastrar info corporal");
+                                        }
+                                    break;
                                 }
                             }else{
                                 erro();
